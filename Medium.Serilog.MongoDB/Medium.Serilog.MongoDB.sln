@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medium.Serilog.MongoDB", "Medium.Serilog.MongoDB\Medium.Serilog.MongoDB.csproj", "{D957B859-DD3C-4300-9F37-18541E729007}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D957B859-DD3C-4300-9F37-18541E729007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D957B859-DD3C-4300-9F37-18541E729007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D957B859-DD3C-4300-9F37-18541E729007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D957B859-DD3C-4300-9F37-18541E729007}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
