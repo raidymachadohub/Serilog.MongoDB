@@ -19,7 +19,7 @@ public class LoggerClass
 
     public void ExecutLogger(TypeLog typeLog, TypeLevel level, string userNameLog, string message)
     {
-        Log.Logger = CreateLogger(typeLog);
+        Log.Logger = CreateLogger(typeLog, level);
         switch (level)
         {
             case TypeLevel.Verbose:
@@ -58,7 +58,7 @@ public class LoggerClass
         return logEventEnrichers;
     }
 
-    private ILogger CreateLogger(TypeLog typeLog)
+    private ILogger CreateLogger(TypeLog typeLog, TypeLevel level)
     {
         var configuration = new LoggerConfiguration()
             .MinimumLevel.Information()
@@ -73,7 +73,7 @@ public class LoggerClass
         configuration.WriteTo.MongoDB(
             host,
             tableName ?? string.Empty,
-            LogEventLevel.Information);
+            GetEventLevel(level));
 
         SelfLog.Enable(msg =>
         {
@@ -83,4 +83,13 @@ public class LoggerClass
 
         return configuration.CreateLogger();
     }
+
+    private static LogEventLevel GetEventLevel(TypeLevel typeLevel) =>
+        typeLevel switch
+        {
+            TypeLevel.Information => LogEventLevel.Information,
+            TypeLevel.Debug => LogEventLevel.Debug,
+            TypeLevel.Verbose => LogEventLevel.Verbose,
+            _ => LogEventLevel.Fatal
+        };
 }
